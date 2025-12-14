@@ -7,6 +7,21 @@
     <script src="/assets/css/taiwling.js"></script>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="/balanza/bassets/css/style.css">
+
+ <script>
+        document.getElementById('loadDataButton').addEventListener('click', function() {
+            fetch('http://localhost:8000/api/datos') // Aquí se hace la solicitud al backend
+                .then(response => response.json())
+                .then(data => {
+                    // Mostrar los datos recibidos
+                    document.getElementById('dataContainer').innerHTML = JSON.stringify(data);
+                })
+                .catch(error => {
+                    console.error('Error al cargar los datos:', error);
+                });
+        });
+    </script>
+
 </head>
 <body>
     <div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
